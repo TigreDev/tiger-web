@@ -7,22 +7,33 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "playwright:install": "pnpm exec playwright install",
+    "playwright:local": "pnpm exec playwright test --project='chromium'",
+    "playwright:test": "pnpm exec playwright test",
+    "playwright:dev": "export IS_PLAYWRIGHT=true && next dev -p 4000",
+    "playwright:start": "export IS_PLAYWRIGHT=true && next start -p 4000",
+    "playwright:build": "export IS_PLAYWRIGHT=true && next build",
+    "playwright:ci": "pnpm playwright:build && pnpm playwright:test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/env": "^15.3.1",
+    "next": "15.3.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.52.0",
+    "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
-    "@eslint/eslintrc": "^3"
+    "is-ci": "^3.0.1",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5"
   }
 }

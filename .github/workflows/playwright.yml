@@ -1,0 +1,19 @@
+name: playwright - local
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: playwright-checks-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Playwright
+        uses: ./.github/workflows/composite/playwright
