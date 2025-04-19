@@ -14,7 +14,8 @@
     "playwright:dev": "export IS_PLAYWRIGHT=true && next dev -p 4000",
     "playwright:start": "export IS_PLAYWRIGHT=true && next start -p 4000",
     "playwright:build": "export IS_PLAYWRIGHT=true && next build",
-    "playwright:ci": "pnpm playwright:build && pnpm playwright:test"
+    "playwright:ci": "pnpm playwright:build && pnpm playwright:test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.3.1",
@@ -31,7 +32,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "is-ci": "^3.0.1",
-    "typecheck": "^0.1.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
